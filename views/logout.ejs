@@ -6,8 +6,12 @@
   <body>
     <main>
       <%- include('partials/navigation', { menuLinks: menuLinks, activeLinkPath:
-      activeLinkPath }); %>
+      activeLinkPath, cartCount: cartCount }); %>
       <h1 class="heading">Logout</h1>
+      <p>
+        Click the "Logout from application" link in the navigation to close the
+        server.
+      </p>
     </main>
   </body>
 </html>

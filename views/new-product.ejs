@@ -6,17 +6,27 @@
   <body>
     <main>
       <%- include('partials/navigation', { menuLinks: menuLinks, activeLinkPath:
-      activeLinkPath }); %>
+      activeLinkPath, cartCount: cartCount }); %>
       <h1 class="heading">Newest product</h1>
       <% if (newestProduct?.name) { %>
       <br />
-      <div>
-        New product data - Name: <%= newestProduct.name %>, Description: <%=
-        newestProduct.description %>
+      <div
+        class="card"
+        style="max-width: 400px; margin: 1rem auto; text-align: left"
+      >
+        <h3 class="card__title">Added: <%= newestProduct.name %></h3>
+        <p class="card_description">
+          Description: <%= newestProduct.description %>
+        </p>
+        <% if (typeof newestProduct.price !== 'undefined') { %>
+        <p class="card_price">
+          Price: <%= newestProduct.price.toFixed(2) %> PLN
+        </p>
+        <% } %>
       </div>
       <% } else { %>
       <br />
-      <div>No new products available.</div>
+      <div>No new products have been added yet.</div>
       <% }%>
     </main>
   </body>

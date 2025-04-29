@@ -10,5 +10,50 @@
       </a>
     </li>
     <% }); %> <% } %>
+
+    <li class="navigation__item navigation__cart">
+      Cart
+      <img
+        class="navigation__icon"
+        src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/shopping-cart.svg"
+        alt="Cart"
+      />
+      <% if (typeof cartCount !== 'undefined' && cartCount > 0) { %>
+      <span class="navigation__badge"> <%= cartCount %> </span>
+      <% } %>
+    </li>
   </ul>
 </nav>
+
+<style>
+  .navigation__badge {
+    display: inline-block;
+    position: absolute;
+    top: -0.6rem;
+    right: -0.8rem;
+    background-color: red;
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 50%;
+    border: 1px solid white;
+    min-width: 1rem;
+    text-align: center;
+    line-height: 1rem;
+  }
+  .navigation__cart {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+  .navigation__icon {
+    width: 20px;
+    height: auto;
+    margin-left: 0.4rem;
+    filter: invert(1);
+  }
+</style>

@@ -1,7 +1,8 @@
 class Product {
-  constructor(name, description) {
+  constructor(name, description, price) {
     this.name = name;
     this.description = description;
+    this.price = parseFloat(price) || 0;
   }
 
   static #products = [];
@@ -10,8 +11,10 @@ class Product {
     return this.#products;
   }
 
-  static add(product) {
-    this.#products.push(product);
+  static add(productData) {
+    const newProduct = new Product(productData.name, productData.description, productData.price);
+    this.#products.push(newProduct);
+    return newProduct;
   }
 
   static findByName(name) {
@@ -26,7 +29,6 @@ class Product {
     if (!this.#products.length) {
       return;
     }
-
     return this.#products[this.#products.length - 1];
   }
 }
